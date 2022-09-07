@@ -1,5 +1,6 @@
 package com.co.qvision.stepsdefinitions;
 
+import com.co.qvision.tasks.LoginTask;
 import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -11,6 +12,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 
@@ -20,20 +22,18 @@ public class LoginStep {
     WebDriver hisBrowser;
     @Before
     public void setUp(){
-
         OnStage.setTheStage(new OnlineCast());
-        OnStage.theActorCalled("Luis");
+        OnStage.theActorCalled("user");
         OnStage.theActorInTheSpotlight().can(BrowseTheWeb.with(hisBrowser));
     }
     @Given("^User wants to enter into their account$")
     public void userWantsToEnterIntoTheirAccount() {
-
-
+        theActorCalled("user").attemptsTo(Open.url("https://www.bon-bonite.com/mi-cuenta/"));
     }
 
-    @When("^User fills the form tipying (\\d+), luiscarlos(\\d+)$")
-    public void userFillsTheFormTipyingLuiscarlos(int arg1, int arg2) {
-
+    @When("^User fills the form tipying (.+),(.+)$")
+    public void userFillsTheFormTipying(String idNumber, String password) {
+        theActorCalled("user").attemptsTo(LoginTask.login(idNumber, password));
     }
 
     @Then("^User login sucessfully ingresar elemento de validacion$")
