@@ -13,7 +13,7 @@ public class LoginQuestion implements Question {
     }
     @Override
     public Object answeredBy(Actor actor){
-        if (Text.of(HomePage._TEXT_VALID).viewedBy(actor).asString().equals(validTest.toString()))
+        if (Text.of(HomePage._TEXT_VALID).viewedBy(actor).asString().contains(validTest.toString()))
             return true;
         else
             return false;
