@@ -6,5 +6,5 @@ Feature: Login In Bon-Bonite
     Then User login sucessfully <validTest>
     Examples:
       |idNumber|password|validTest|
-      |1022036498|luiscarlos123777|ingresar elemento de validacion|
+      |1022036498|luiscarlos123777|Cerrar sesión|
 
