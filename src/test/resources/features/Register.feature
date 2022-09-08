@@ -6,4 +6,4 @@ Feature: Register New User In BonBonite
     Then Account created sucessfully <validTest>
     Examples:
       |idNumber|email|password|validTest|
-      |152633748|maidwlWDWDddll@gmail.com|Jh1234567890.=Jh+*|Cerrar sesión|
+      |15263331758|maidwaqdWDWDddll@gmail.com|Jh1234567890.=Jh+*|Cerrar sesión|
