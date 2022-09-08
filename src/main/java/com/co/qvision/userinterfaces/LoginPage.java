@@ -1,6 +1,5 @@
 package com.co.qvision.userinterfaces;
 
-
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 

@@ -8,3 +8,4 @@ Feature: Login In Bon-Bonite
       |idNumber|password|validTest|
       |1022036498|luiscarlos123777|Cerrar sesión|
 
+
