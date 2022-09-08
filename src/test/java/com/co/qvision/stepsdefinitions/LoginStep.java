@@ -1,11 +1,12 @@
 package com.co.qvision.stepsdefinitions;
 
+import com.co.qvision.questions.LoginQuestion;
 import com.co.qvision.tasks.LoginTask;
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
@@ -15,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class LoginStep {
 
@@ -36,9 +38,8 @@ public class LoginStep {
         theActorCalled("user").attemptsTo(LoginTask.login(idNumber, password));
     }
 
-    @Then("^User login sucessfully ingresar elemento de validacion$")
-    public void userLoginSucessfullyIngresarElementoDeValidacion() {
-
+    @Then("^User login sucessfully (.+)$")
+    public void userLoginSucessfullyIngresarElementoDeValidacion(String validTest) {
+        theActorInTheSpotlight().should(GivenWhenThen.seeThat(LoginQuestion.loginvalidtest(validTest)));
     }
-
 }
